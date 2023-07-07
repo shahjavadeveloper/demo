@@ -1,7 +1,6 @@
 FROM openjdk:11
 
 EXPOSE 8282
-
-ADD target/docker-Demo.jar docker-Demo.jar
-
-ENTRYPOINT ["java","-jar","/docker-Demo.jar" ]
+ARG JAR_FILE=target/Demo.jar
+ADD ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
